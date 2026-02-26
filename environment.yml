@@ -1,0 +1,14 @@
+name: hpdm097_a2
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - simpy=4.1.1
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - jupyterlab
+  - ipykernel
