@@ -1,7 +1,4 @@
-## This is a repo for team working on HDPM097.
-
-## Development notes
-
+## Development notes for team working on HDPM097.
 
 ## Reproducible Environment
 
@@ -15,8 +12,7 @@ Where:
 - `hpdm097` refers to the module code
 - `a2` refers to Assignment 2
 
-
-### Creating the Environment
+To create the environment:
 
 ```bash
 conda env create -f environment.yml
@@ -26,6 +22,7 @@ jupyter lab
 
 ### Proposed structure:
 
+```
 root/
 │
 ├── README.md
@@ -44,11 +41,13 @@ root/
 │   ├── prompt_log.md
 │
 ├── team_portfolio/
+│   ├── action_plan.md
 │   ├── meeting_agenda_1.md
 │   ├── meeting_minutes_1.md
-│   ├── action_plan.md
+│   ├── etc...
 │
 └── assets/
     ├── diagrams/
     ├── figures/
     └── extracted_parameters.csv
+```
