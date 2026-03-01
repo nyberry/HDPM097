@@ -9,6 +9,5 @@ dependencies:
   - numpy
   - pandas
   - matplotlib
-  - seaborn
   - jupyterlab
   - ipykernel

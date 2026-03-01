@@ -1,0 +1,5 @@
+# Ignore development draft files
+development_files/
+
+# Ignore macOS metadata files
+.DS_Store

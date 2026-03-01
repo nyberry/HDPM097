@@ -4,9 +4,7 @@
 
 This project uses a dedicated Conda environment to ensure reproducibility of the simulation model and experiments.
 
-The environment is named:
-
-    hpdm097_a2
+The environment is named `hpdm097_a2`
 
 Where:
 - `hpdm097` refers to the module code
@@ -20,14 +18,14 @@ conda activate hpdm097_a2
 jupyter lab
 ```
 
-### Proposed structure:
+## Repo structure:
 
 ```
 root/
 │
 ├── README.md
 ├── report.md
-├── environment.yml  (or requirements.txt)
+├── environment.yml
 │
 ├── technical_appendix/
 │   ├── 01_iteration_arrivals.ipynb
@@ -36,9 +34,9 @@ root/
 │   └── final_model.ipynb
 │
 ├── LLM_prompts/
-│   ├── 01_arrivals_prompt.md
-│   ├── 02_process_prompt.md
-│   ├── prompt_log.md
+│   ├── paper_selection_analysis.md
+│   ├── arrivals.md
+│   ├── etc...
 │
 ├── team_portfolio/
 │   ├── action_plan.md
@@ -47,7 +45,6 @@ root/
 │   ├── etc...
 │
 └── assets/
-    ├── diagrams/
     ├── figures/
     └── extracted_parameters.csv
 ```
