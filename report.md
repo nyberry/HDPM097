@@ -80,8 +80,8 @@ In discrete event simulation (DES), activities are processes that consume time.
 
 ## 2.3 Resources
 
-- Acute stroke beds
-- Rehab beds
+- Acute stroke beds: 10 beds
+- Rehab beds: 12 beds
 
 ## 2.4 Routing Logic
 
