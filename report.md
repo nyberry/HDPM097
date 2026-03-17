@@ -66,10 +66,10 @@ In discrete event simulation (DES), activities are processes that consume time.
 
 ### Activity 2 - Acute ward stay
 - Duration: Lognormal distribution
-- parameters differ by patient type:
+- parameters differ by patient type (mean):
   - Acute stroke, no ESD: 7.4 days
   - Acute stroke, ESD: 4.6 days
-  - stroke mortality: 7.0 days
+  - Acute stroke mortality: 7.0 days
   - TIA: 1.8 days
   - Complex neuro: 4.0 days
   - Other: 3.8 days
