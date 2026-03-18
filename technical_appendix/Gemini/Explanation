@@ -4,3 +4,5 @@ I have based all the prompts on the Paper and the workshops but have not actuall
 I have just given it very specific prompts each time
 So far the code has been reproducible and output seems to match the paper well
 I've completed the flow diagram and have tested the base scenario and scenario with 5% more admissions
+The outcome measure is probability of delay depending on bed spaces
+There is a 3-year warm up period and the data collection spans a 10 year simulation period
