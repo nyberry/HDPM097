@@ -1,0 +1,10 @@
+{
+  "include": [
+    "stroke_sim",
+    "tests",
+    "notebooks"
+  ],
+  "extraPaths": [],
+  "venvPath": ".",
+  "reportMissingImports": true
+}
