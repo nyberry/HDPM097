@@ -8,11 +8,15 @@ Authors:  NA, NB, LB
 
 ## Introduction
 
-Discrete-event simulation (DES) is widely used to analyse patient flow, queues, capacity constraints and resource allocation in healthcare systems. In Python, the `SimPy` library provides a flexible process-based framework for implementing DES models, allowing entities, resources, delays and routing rules to be represented transparently in code. However, while DES studies are often published in the health services literature, the underlying computer models are frequently unavailable. This creates a practical problem for reproducibility: model logic, assumptions and parameterisation must be inferred from prose descriptions, figures and summary tables rather than from the original implementation.
+Discrete-event simulation (DES) is used to analyse patient flow, queues, capacity constraints and resource allocation in healthcare systems. In Python, the `SimPy` library provides a framework for implementing DES models, allowing entities, resources, delays and routing rules to be represented in code.
 
-This study focuses on the stroke pathway model reported by Monks et al. (2016), which examined capacity planning in acute and community stroke services. Their model represented the flow of stroke, high-risk transient ischaemic attack (TIA), complex neurological and other patients through an acute stroke unit, inpatient rehabilitation and early supported discharge, and used simulation outputs to estimate the probability of admission or transfer delay under alternative bed configurations. The paper was selected because it provides a relatively clear pathway diagram, explicit distributional assumptions and several published output tables and charts against which a recreation can be compared.
+However, while DES studies are often published in the health services literature, the underlying code of models are frequently unavailable. This creates a problem for reproducibility: model logic, assumptions and parameterisation must be inferred from descriptions, figures and tables rather than from the original implementation.
 
-The project was designed not only as a modelling exercise but also as a small research study in iterative model recreation using large language models (LLMs). Specifically, we explored whether a simulation described in natural language could be recreated in Python and `SimPy` through a structured sequence of prompts and refinements, and how that process differed when using different AI assistants. The study therefore combines two related aims: first, to produce a working and understandable recreation of the Monks et al. model; and second, to compare manual and agentic AI-assisted workflows for building and validating that recreation.
+This study focuses on the stroke pathway model reported by Monks et al. (2016), which examined capacity planning in acute and community stroke services. Their model represented the flow of stroke, high-risk transient ischaemic attack (TIA), complex neurological and other patients through an acute stroke unit, inpatient rehabilitation and early supported discharge, and used simulation outputs to estimate the probability of admission or transfer delay under alternative bed configurations. The paper was selected because it provides a clear pathway diagram, is explicit about distribution assumptions, and includes output tables and charts against which a recreation can be compared.
+
+The project was designed not only as a modelling exercise but also as a research study in iterative model recreation using large language models (LLMs). Specifically, we explored whether a simulation described in natural language could be recreated in Python and `SimPy` through a structured sequence of prompts and refinements, and how that process differed when using different AI assistants.
+
+The study therefore combines two related aims: first, to produce a working and understandable recreation of the Monks et al. model; and second, to compare manual and agentic AI-assisted workflows for building and validating that recreation.
 
 ## Methods
 
@@ -31,7 +35,7 @@ We compared these articles, considering:
 -   **Validation opportunity** — Are there reported outputs to validate a recreation against?
 -   **Simplification scope** — Can the model be reasonably simplified, if necessary, while meeting the assignment's minimum complexity requirement?
 
-The group agreed to proceed with the **Monks et al. (2016)** paper. The rationale for selection was that this study offered a clear model structure and pathway logic, sufficient reporting of parameters and process flow, and several published output tables suitable for validation. It also met the assignment requirement that the recreated model should have at least one type of patient and multiple activities, or multiple patient types and one activity. The Monks et al. model satisfies the latter condition because it includes multiple patient groups, distinct distributions and multiple routing options.
+The group agreed to proceed with the **Monks et al. (2016)** paper. The rationale for selection was that this study offered a clear model structure and pathway logic, sufficient reporting of parameters and process flow, and several published output tables suitable for validation. It also met the assignment requirement that the recreated model should have at least one type of patient and multiple activities, or multiple patient types and one activity. 
 
 Monks et al. describe a discrete-event simulation model using aggregate parameter values derived from more than 2000 anonymised admission and discharge timestamps. The model mimics the flow of stroke, high-risk TIA, complex neurological and other patients from admission to an acute ward through to community rehabilitation and early supported discharge, and predicts the probability of admission or transfer delay under different bed-capacity scenarios.
 
@@ -46,7 +50,7 @@ Figure 1 was used as a reference diagram during model design and prompt engineer
 ## 2.1 Entities
 
 The model contains one entity type:
-- **Patient**
+- Patient
 
 Patients are categorised into four subtypes:
 - Stroke
@@ -84,8 +88,14 @@ In DES, activities are processes that consume simulation time. Based on the pape
 
 ## 2.3 Resources
 
+The published Monks et al. model is described as unconstrained in the sense that patient demand is simulated without bed-capacity blocking within the core model logic. Instead, occupancy is audited over time and the probability of delay is calculated by comparing the occupancy distribution with candidate bed numbers.
+
+For that reason, the recreated model treats the following bed numbers as the *base scenario* representing the observed service configuration rather than as fixed internal queue capacities:
+
 - Acute stroke beds: 10 beds
 - Rehab beds: 12 beds
+
+These values were used as the reference configuration for the current-admissions validation scenario, after which alternative bed capacities were explored.
 
 ## 2.4 Routing Logic
 
@@ -120,7 +130,7 @@ These scenarios were selected because they are explicitly reported in the paper 
 
 The recreation process followed an iterative design strategy consistent with the assignment brief. Rather than attempting to generate the full model in a single prompt, the model was built in layers. Each iteration focused on a specific modelling task, such as extracting parameters, implementing arrivals, auditing occupancy, estimating `p(delay)`, or reproducing a published scenario table. After each iteration, the code was tested and either accepted, revised manually, or re-specified in a subsequent prompt.
 
-This iterative process had two complementary purposes. First, it reduced the risk of introducing large undetected errors into the model. Second, it provided a structured way to compare different forms of model development: manual coding, prompt-based generation with external LLMs, and agentic AI-assisted refinement in Codex.
+This iterative process had two main purposes. First, it reduced the risk of introducing large undetected errors into the model. Second, it provided a structured way to compare different forms of model development: manual coding, prompt-based generation with external LLMs, and agentic AI-assisted refinement in Codex.
 
 ## 3.1 Manual baseline and model design
 
@@ -145,7 +155,7 @@ This baseline design stage was essential because the published article did not p
 
 ## 3.4 Codex-assisted iterations
 
-Codex was used as an agentic coding environment rather than as a single-turn code generator. In practice, this meant that the workflow combined code inspection, file editing, testing, notebook construction and iterative validation within the same environment. The development process proceeded through a sequence of numbered notebooks. Early iterations focused on project setup and parameter extraction; subsequent iterations implemented the occupancy-audit model, calibration logic, scenario analysis, and final appendix consolidation.
+Codex was used as an agentic coding environment rather than as a single-turn code generator. In practice, this meant that the workflow combined code inspection, file editing, testing, notebook construction and iterative validation within the same environment. The development process proceeded through a sequence of numbered notebooks. The first iterations focused on project setup and parameter extraction; subsequent iterations implemented the occupancy-audit model, calibration logic, scenario analysis, and the final iteration is a consolidation of all previous iterations.
 
 Compared with one-shot prompting, the Codex workflow was closer to paired programming. Model behaviour could be checked after each change, and prompts could be framed as bounded engineering tasks such as:
 
@@ -155,11 +165,11 @@ Compared with one-shot prompting, the Codex workflow was closer to paired progra
 - compare the recreated outputs against Table 2
 - create a final technical appendix notebook
 
-This supported a more controlled and test-driven recreation process, although manual review was still required to detect modelling assumptions, interpret ambiguous reporting, and decide whether numerical differences from the published tables were acceptable.
+This was a controlled and test-driven recreation process, although manual review was still required to detect modelling assumptions, interpret ambiguous reporting, and decide whether numerical differences from the published tables were acceptable.
 
 ## 3.5 Comparison of manual and AI-assisted approaches
 
-Across all approaches, the most effective workflow was iterative rather than one-shot. In manual work, iteration was needed to refine the conceptual model and assumptions. In AI-assisted work, iteration was needed to tighten prompts, reduce ambiguity, inspect generated code, and correct errors. The broad pattern observed was that AI tools were useful for accelerating implementation and refactoring, but they did not remove the need for domain interpretation, testing, or critical review. For that reason, the study should be understood as an experiment in human-supervised model recreation rather than autonomous code generation.
+Across all approaches, the most effective workflow was iterative rather than one-shot. In manual work, iteration was needed to refine the conceptual model and assumptions. In AI-assisted work, iteration was needed to tighten prompts, reduce ambiguity, inspect generated code, and correct errors. The broad pattern observed was that AI tools were useful for accelerating implementation and refactoring, but they did not remove the need for interpretation, testing, or critical review. 
 
 ## 4. Validation and testing
 
@@ -184,21 +194,21 @@ Where outputs differed, these discrepancies were not treated simply as failures.
 
 ## Results
 
-The final recreated model was implemented as a parameter-driven occupancy-audit simulation in Python using `SimPy`. The technical appendix contains the full runnable notebook, the supporting Python package, and the intermediate iteration notebooks showing how the model was refined. In total, the Codex-assisted strand produced ten numbered notebooks, progressing from project setup and parameter extraction to scenario validation and consolidation into a final end-to-end appendix notebook.
+The final recreated model was implemented as simulation in Python using `SimPy`. The technical appendix contains the full runnable notebook, the supporting Python package, and the intermediate iteration notebooks showing how the model was refined. In total, the Codex-assisted strand produced ten numbered notebooks, progressing from project setup and parameter extraction to scenario validation and consolidation into a final end-to-end appendix notebook.
 
-The recreated model successfully reproduced the main qualitative behaviour of the Monks et al. study. In the base scenario, the simulated acute occupancy distribution had a similar unimodal shape to the published occupancy probability density function, and the recreated acute delay trade-off curve showed the same stepped decline in `p(delay)` as bed numbers increased. This indicates that the core pathway logic, arrival structure and length-of-stay assumptions were sufficiently coherent to recover the broad behaviour of the original model.
+The recreated model successfully reproduced the main qualitative behaviour of the Monks et al. study. In the base scenario, the simulated acute occupancy distribution had a similar unimodal shape to the published occupancy probability density function, and the recreated acute delay trade-off curve showed the same stepped decline in `p(delay)` as bed numbers increased. This indicates that the core pathway logic, arrival structure and length-of-stay assumptions were sufficient to recover the broad behaviour of the original model.
 
 ### Figure 2. Recreated acute occupancy distribution
 
 ![Recreated acute occupancy distribution](technical_appendix/final_appendix/docs/figures/final_appendix_acute_occupancy_distribution.png)
 
-This figure shows the simulated distribution of daily occupancy in the acute stroke unit under the current-admissions scenario. As in Monks et al., the distribution is concentrated around the mean occupancy and displays a right tail reflecting the probability of temporarily high bed demand. The figure is important because the later delay calculations are derived from this occupancy audit rather than from direct blocking of patients in a finite-capacity ward.
+This figure shows the simulated distribution of daily occupancy in the acute stroke unit under the current-admissions scenario. As in Monks et al., the distribution is concentrated around the mean occupancy and displays a right tail reflecting the probability of temporarily high bed demand. The figure is important because the later delay calculations are derived from this occupancy audit rather than from direct blocking of patients in a fixed-capacity ward.
 
 ### Figure 3. Recreated acute bed trade-off curve
 
 ![Recreated acute delay trade-off curve](technical_appendix/final_appendix/docs/figures/final_appendix_acute_delay_tradeoff.png)
 
-This figure reproduces the logic of the paper’s trade-off curve by showing how the estimated probability of delay falls as acute bed numbers increase. The stepped form of the curve is consistent with the published figure and demonstrates that the recreated model captures the central capacity-planning insight of the study: relatively small changes in bed numbers can produce large changes in delay probability at low capacity levels, followed by diminishing returns as more reserve capacity is added.
+This figure reproduces the logic of the paper’s trade-off curve by showing how the estimated probability of delay falls as acute bed numbers increase. The stepped form of the curve is consistent with the published figure and demonstrates that relatively small changes in bed numbers can produce large changes in delay probability at low capacity levels, followed by diminishing returns as more capacity is added.
 
 ### Current admissions versus 5% more admissions
 
@@ -224,7 +234,7 @@ The recreated model was closest to the published results when delay was estimate
 | 15 | 0.03 | 0.03 | 0.04 | 0.04 |
 | 16 | 0.02 | 0.02 | 0.02 | 0.03 |
 
-These results suggest that the recreated occupancy-audit model provides a credible approximation to the reported base-case and increased-demand results, especially for the acute ward.
+These results suggest that the recreated occupancy-audit model provides a good approximation to the reported base-case and increased-demand results, for both the acute and rehab wards.
 
 ### Effect of complex neurological patients on flow
 
