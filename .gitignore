@@ -1,5 +1,13 @@
 # Ignore development draft files
 development_files/
 
-# Ignore macOS metadata files
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+.matplotlib/
+
+# macOS metadata
 .DS_Store
