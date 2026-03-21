@@ -49,7 +49,7 @@ The work is organised to satisfy both goals of the assignment:
 
 ## Final Notebook
 
-Run [10_final_technical_appendix.ipynb](/Users/nyberry/Desktop/Exeter/HDPM097/assignment_2_2026/HDPM097/technical_appendix/Codex/notebooks/10_final_technical_appendix.ipynb) for the consolidated technical appendix narrative. It includes:
+Run [10_final_technical_appendix.ipynb](notebooks/10_final_technical_appendix.ipynb) for the consolidated technical appendix narrative. It includes:
 
 - environment setup guidance
 - reproducibility notes and fixed random seed
@@ -67,8 +67,8 @@ The notebook is designed to run end to end from the project environment and writ
 
 Important generated figures include:
 
-- [final_appendix_acute_occupancy_distribution.png](/Users/nyberry/Desktop/Exeter/HDPM097/assignment_2_2026/HDPM097/technical_appendix/Codex/docs/figures/final_appendix_acute_occupancy_distribution.png)
-- [final_appendix_acute_delay_tradeoff.png](/Users/nyberry/Desktop/Exeter/HDPM097/assignment_2_2026/HDPM097/technical_appendix/Codex/docs/figures/final_appendix_acute_delay_tradeoff.png)
+- [final_appendix_acute_occupancy_distribution.png](docs/figures/final_appendix_acute_occupancy_distribution.png)
+- [final_appendix_acute_delay_tradeoff.png](docs/figures/final_appendix_acute_delay_tradeoff.png)
 
 Additional scenario-specific figures and tables are preserved in the iteration notebooks.
 
@@ -77,4 +77,4 @@ Additional scenario-specific figures and tables are preserved in the iteration n
 - Python 3.11+ for local execution
 - SimPy 4.1.1
 
-See `pyproject.toml` for dependencies and [environment_setup.md](/Users/nyberry/Desktop/Exeter/HDPM097/assignment_2_2026/HDPM097/technical_appendix/Codex/docs/environment_setup.md) for local VS Code setup.
+See `pyproject.toml` for dependencies and [environment_setup.md](docs/environment_setup.md) for local VS Code setup.
