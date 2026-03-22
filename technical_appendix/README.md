@@ -19,6 +19,14 @@ This is the consolidated notebook that runs the recreated model end to end and p
 - `no complex neurological patients`
 - ring-fenced acute stroke beds
 
+## Reproducibility
+
+Use the single root-level environment described in:
+
+- `../README.md`
+
+From the repository root, create the Python 3.11 environment and install `requirements.txt`, then run the final appendix notebook.
+
 ## Supporting development trails
 
 The project also preserves tool-specific development history:
@@ -28,15 +36,3 @@ The project also preserves tool-specific development history:
 - `Codex/`
 
 These folders are useful for showing how the recreation process differed across LLMs and coding workflows.
-
-## Reproducibility
-
-The final appendix is designed to be run from:
-
-- `final_appendix/`
-
-See:
-
-- `final_appendix/environment/README.md`
-
-for the Python 3.11 and SimPy 4.1.1 setup instructions.

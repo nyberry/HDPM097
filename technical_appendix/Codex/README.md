@@ -41,9 +41,6 @@ The work is organised to satisfy both goals of the assignment:
 - `tests/`
   Automated tests for the core model, parameters, metrics, scenarios, pooling logic, and validation table helpers.
 
-- `pyproject.toml`
-  Package metadata and dependency declarations.
-
 - `.vscode/settings.json`, `pyrightconfig.json`
   Workspace configuration to help the package resolve correctly in the IDE.
 
@@ -74,7 +71,7 @@ Additional scenario-specific figures and tables are preserved in the iteration n
 
 ## Environment
 
-- Python 3.11+ for local execution
+- Python 3.11 for the submission environment
 - SimPy 4.1.1
 
-See `pyproject.toml` for dependencies and [environment_setup.md](docs/environment_setup.md) for local VS Code setup.
+Use the root-level `requirements.txt` for dependencies. See [environment_setup.md](docs/environment_setup.md) for local VS Code notes specific to this development trail.
