@@ -1,13 +1,11 @@
-# HDPM097 Assignment Repository
+# HDPM097 Assignment Folder
 
-This repository contains the submission materials and supporting development trail for the recreation of the Monks et al. (2016) stroke-pathway discrete-event simulation, together with a comparison of manual and LLM-assisted iterative design workflows.
+This folder contains the submission materials and supporting development trail for the recreation of the Monks et al. (2016) stroke-pathway discrete-event simulation, together with a comparison of LLM-assisted and code-agent assisted iterative design workflows.
 
-## Submission-facing structure
-
-The main submission artefacts are organised at the repository root:
+The main submission materials are:
 
 - `report.md`
-  Draft report text for the written submission.
+  Report text for the written submission.
 - `technical_appendix/`
   Jupyter notebooks, Python code, figures, and supporting documentation for the technical appendix.
 - `team_portfolio/`
@@ -35,10 +33,6 @@ The `technical_appendix/final_appendix/` folder contains:
   Automated checks for the recreated model.
 - `docs/`
   Source texts, assumptions, model specification, and generated figures.
-
-## One environment for the whole project
-
-Use a single root-level Python environment for the whole repository.
 
 ### Recommended setup
 
@@ -71,11 +65,6 @@ and select the `hdpm097` kernel.
 The earlier tool-specific development trails are preserved in:
 
 - `technical_appendix/Gemini/`
-- `technical_appendix/Claude/`
 - `technical_appendix/Codex/`
 
-These folders support the research narrative comparing manual and AI-assisted iterative recreation workflows. Their local environment files reflect development history and are not required for assessment.
-
-## Note
-
-This branch preserves intermediate development material because the assignment brief asks for evidence of iterative model recreation. For assessment, the root `requirements.txt` and the appendix notebook in `technical_appendix/final_appendix/` are the intended primary entry points.
+These folders compare LLM-assisted and code-agent-assisted iterative workflows. All LLM prompts are included within the notebooks. This branch preserves intermediate development material because the assignment brief asks for evidence of iterative model recreation.
