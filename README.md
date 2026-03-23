@@ -10,12 +10,8 @@ The main submission materials are:
   Jupyter notebooks, Python code, figures, and supporting documentation for the technical appendix.
 - `team_portfolio/`
   Evidence of group working.
-- `assets/figures/`
-  Supporting figures used in the report.
 - `requirements.txt`
-  Single project environment specification for markers and testers.
-- `.python-version`
-  Python version target for reproducible setup.
+  Project environment specification.
 
 ## Main appendix to assess
 
