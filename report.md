@@ -259,17 +259,17 @@ The pooled-bed scenarios reproduced the broad finding that complete pooling and 
 
 **Table 5. Pooling scenarios: published versus recreated `p(delay)`**
 
-| Dedicated acute | Dedicated rehab | Pooled | Published acute | Recreated acute | Published rehab | Recreated rehab |
-|---:|---:|---:|---:|---:|---:|---:|
-| 0 | 0 | 22 | 0.057 | 0.068 | 0.057 | 0.068 |
-| 0 | 0 | 26 | 0.016 | 0.018 | 0.016 | 0.018 |
-| 14 | 12 | 0 | 0.020 | 0.021 | 0.117 | 0.109 |
-| 11 | 11 | 4 | 0.031 | 0.048 | 0.077 | 0.091 |
-| 11 | 10 | 5 | 0.027 | 0.041 | 0.080 | 0.092 |
-| 10 | 10 | 6 | 0.033 | 0.045 | 0.057 | 0.066 |
-| 10 | 9 | 7 | 0.030 | 0.042 | 0.060 | 0.067 |
-| 9 | 9 | 8 | 0.035 | 0.045 | 0.049 | 0.054 |
-| 9 | 8 | 9 | 0.034 | 0.044 | 0.051 | 0.054 |
+| Dedicated acute | Dedicated rehab | Pooled | Published acute | Codex acute | Gemini acute | Published rehab | Codex rehab | Gemini rehab |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0 | 0 | 22 | 0.057 | 0.068 |  | 0.057 | 0.068 |  |
+| 0 | 0 | 26 | 0.016 | 0.018 |  | 0.016 | 0.018 |  |
+| 14 | 12 | 0 | 0.020 | 0.021 |  | 0.117 | 0.109 |  |
+| 11 | 11 | 4 | 0.031 | 0.048 |  | 0.077 | 0.091 |  |
+| 11 | 10 | 5 | 0.027 | 0.041 |  | 0.080 | 0.092 |  |
+| 10 | 10 | 6 | 0.033 | 0.045 |  | 0.057 | 0.066 |  |
+| 10 | 9 | 7 | 0.030 | 0.042 |  | 0.060 | 0.067 |  |
+| 9 | 9 | 8 | 0.035 | 0.045 |  | 0.049 | 0.054 |  |
+| 9 | 8 | 9 | 0.034 | 0.044 |  | 0.051 | 0.054 |  |
 
 ### Ring-fenced acute stroke beds
 
