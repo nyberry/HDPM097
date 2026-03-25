@@ -245,13 +245,13 @@ The recreated model captured the direction of effect for the `no complex neurolo
 
 **Table 4. Rehabilitation beds: published versus recreated results for current admissions and no complex neurological patients**
 
-| Beds | Published current p(delay) | Recreated current p(delay) | Published no-complex p(delay) | Recreated no-complex p(delay) |
-|---|---:|---:|---:|---:|
-| 12 | 0.11 | 0.11 | 0.03 | 0.05 |
-| 13 | 0.08 | 0.08 | 0.02 | 0.03 |
-| 14 | 0.05 | 0.05 | 0.01 | 0.02 |
-| 15 | 0.03 | 0.03 | 0.01 | 0.01 |
-| 16 | 0.02 | 0.02 | 0.00 | 0.00 |
+| Beds | Published current p(delay) | Codex current p(delay) | Gemini current p(delay) | Published no-complex p(delay) | Recreated no-complex p(delay) | Gemini no-complex p (delay) |
+|---|---:|---:|---:|---:|---:|---:|
+| 12 | 0.11 | 0.11 | 0.11 | 0.03 | 0.05 | 0.05 |
+| 13 | 0.08 | 0.08 | 0.08 | 0.02 | 0.03 | 0.03 |
+| 14 | 0.05 | 0.05 | 0.05 | 0.01 | 0.02 | 0.02 |
+| 15 | 0.03 | 0.03 | 0.03 | 0.01 | 0.01 | 0.01 |
+| 16 | 0.02 | 0.02 | 0.02 | 0.00 | 0.00 | 0.01 |
 
 ### Pooling of acute and rehabilitation beds
 
