@@ -208,13 +208,13 @@ Agreement with the published results was strongest when p(delay) was calculated 
 
 **Table 1. Acute beds: published versus recreated results for current admissions and 5% more admissions**
 
-| Beds | Published current p(delay) | Recreated current p(delay) | Published +5% p(delay) | Recreated +5% p(delay) |
-|---|---:|---:|---:|---:|
-| 10 | 0.14 | 0.14 | 0.16 | 0.16 |
-| 11 | 0.09 | 0.09 | 0.11 | 0.11 |
-| 12 | 0.06 | 0.06 | 0.07 | 0.07 |
-| 13 | 0.04 | 0.04 | 0.05 | 0.05 |
-| 14 | 0.02 | 0.02 | 0.03 | 0.03 |
+| Beds | Published current p(delay) | Codex current p(delay) | Gemini current p(delay) | Published +5% p(delay) | Codex +5% p(delay) | Gemini +5% p(delay) |
+|---|---:|---:|---:|---:|---:|---:|
+| 10 | 0.14 | 0.14 | 0.14 | 0.16 | 0.16 | 0.14 |
+| 11 | 0.09 | 0.09 | 0.08 | 0.11 | 0.11 | 0.10 |
+| 12 | 0.06 | 0.06 | 0.06 | 0.07 | 0.07 | 0.08 |
+| 13 | 0.04 | 0.04 | 0.03 | 0.05 | 0.05 | 0.04 |
+| 14 | 0.02 | 0.02 | 0.02 | 0.03 | 0.03 | 0.03 |
 
 **Table 2. Rehabilitation beds: published versus recreated results for current admissions and 5% more admissions**
 
