@@ -142,13 +142,15 @@ This design stage was essential because the published article did not provide so
 
 ## 3.2 Gemini-assisted iterations
 
-[Placeholder: describe the Gemini workflow, eg. prompts used, what code was generated, how many iterations were needed, what worked well, and what required manual correction.]
+Gemini was the LLM used for manual prompts to create the model using the iterative process. The workflow comprised of prompt engineering, file editing, testing and notebook construction.
 
-## 3.3 Claude-assisted iterations
+The development process proceeded through a sequence of numbered notebooks. The first iterations involved setting up the context of the model, the arrival process, and gradually building up the patient pathway. Later iterations involved creating an auditing tool for the desired outcome measure and testing multiple different scenarios.
 
-[Placeholder: describe the Claude workflow, eg. prompts used, what code was generated, how many iterations were needed, what worked well, and what required manual correction.]
+The model was not fed the paper we were trying to replicate. Instead, each iteration was built using very specific prompts to iteratively build each part of the model. Each iteration was tested to ensure it would run as expected. Further specific prompts were then given to build on previously working code until a full working model was established.
 
-## 3.4 Codex-assisted iterations
+Manual review was required to specify modelling assumptions, interpret ambiguous reporting, and decide whether numerical differences from the published tables were acceptable.
+
+## 3.3 Codex-assisted iterations
 
 Codex was used as an agentic coding environment. The workflow combined code inspection, file editing, testing, notebook construction and iterative validation within the same environment.
 
@@ -164,7 +166,7 @@ The Codex workflow was arguably closer to paired programming that iterative LLM 
 
 This was a controlled and test-driven recreation process. Manual review was required to detect modelling assumptions, interpret ambiguous reporting, and decide whether numerical differences from the published tables were acceptable.
 
-## 3.5 Comparison of manual and AI-assisted approaches
+## 3.4 Comparison of manual and AI-assisted approaches
 
 Across all approaches, an iterative workflow was required. In manual work, iteration was needed to refine the conceptual model and assumptions. In AI-assisted work, iteration was needed to tighten prompts, reduce ambiguity, inspect generated code, and correct errors. AI tools were useful for accelerating implementation and refactoring, but they did not remove the need for interpretation, testing, or critical review. 
 
