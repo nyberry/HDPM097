@@ -218,13 +218,13 @@ Agreement with the published results was strongest when p(delay) was calculated 
 
 **Table 2. Rehabilitation beds: published versus recreated results for current admissions and 5% more admissions**
 
-| Beds | Published current p(delay) | Recreated current p(delay) | Published +5% p(delay) | Recreated +5% p(delay) |
-|---|---:|---:|---:|---:|
-| 12 | 0.11 | 0.11 | 0.13 | 0.13 |
-| 13 | 0.08 | 0.08 | 0.09 | 0.09 |
-| 14 | 0.05 | 0.05 | 0.07 | 0.06 |
-| 15 | 0.03 | 0.03 | 0.04 | 0.04 |
-| 16 | 0.02 | 0.02 | 0.02 | 0.03 |
+| Beds | Published current p(delay) | Codex current p(delay) | Gemini current p(delay) | Published +5% p(delay) | Codex +5% p(delay) | Gemini +5% p(delay) |
+|---|---:|---:|---:|---:|---:|---:|
+| 12 | 0.11 | 0.11 | 0.11 | 0.13 | 0.13 | 0.13 |
+| 13 | 0.08 | 0.08 | 0.08 | 0.09 | 0.09 | 0.09 |
+| 14 | 0.05 | 0.05 | 0.05 | 0.07 | 0.06 | 0.06 |
+| 15 | 0.03 | 0.03 | 0.03 | 0.04 | 0.04 | 0.04 |
+| 16 | 0.02 | 0.02 | 0.02 | 0.02 | 0.03 | 0.03 |
 
 These results suggest that the recreated occupancy-audit model provides a good approximation to the reported base-case and increased-demand results, for both the acute and rehab wards.
 
