@@ -10,19 +10,17 @@ Discrete-event simulation (DES) models in healthcare research are rarely publish
 
 Discrete-event simulation (DES) is used to analyse patient flow, queues, capacity constraints and resource allocation in healthcare systems. In Python, the SimPy library provides a framework for implementing DES models, allowing entities, resources, delays and routing rules to be represented in code.
 
-DES studies are often published in the health services literature, but the underlying code of models are frequently unavailable. This creates a problem for reproducibility: model logic, assumptions and parameters must be inferred from descriptions, figures and tables rather than from the original code.
+DES studies are often published in the health services literature, but the underlying code is frequently unavailable. This creates a reproducibility problem: model logic, assumptions and parameters must be inferred from descriptions, figures and tables rather than from code.
 
 This study focuses on the stroke pathway model reported by Monks et al. [1], which examined capacity planning in acute and community stroke services. Their model represents the flow of stroke, high-risk transient ischaemic attack (TIA), complex neurological and other patients through an acute stroke ward and a rehabilitation ward, using simulation to estimate the probability of admission or transfer delay under different scenarios. The paper was selected because it provides a clear pathway diagram, is explicit about distribution assumptions, and includes output tables and charts against which a recreation can be compared.
 
-The project was designed not only as a modelling exercise but also as a research study in iterative model recreation using large language models (LLMs). Specifically, we explored whether a simulation described in natural language could be recreated in Python and SimPy through a structured sequence of prompts and refinements, and how that process differed when using different AI assistants.
-
-The study therefore combines two related aims: first, to produce a working recreation of the Monks et al. [1] model; and second, to compare prompt-based and agentic AI-assisted workflows for building and validating that recreation.
+The study combines two aims: first, to produce a working recreation of the Monks et al. [1] model using an iterative sequence of prompts and refinements; and second, to compare prompt-based and agentic AI-assisted workflows for building and validating that recreation.
 
 ## Methods
 
 ### 1. Selection of published model
 
-The group evaluated several candidate articles and selected the Monks et al. [1] stroke capacity planning model. This paper was chosen because it offered a clear model diagram and pathway logic, explicit distribution parameters in a supplementary appendix, and published output tables suitable for validation. The model simulates the flow of stroke, TIA, complex neurological and other patients through an acute ward and rehabilitation ward, predicting the probability of admission or transfer delay under different bed-capacity scenarios. 
+The group evaluated several candidate articles and selected the Monks et al. [1] stroke capacity planning model. This paper was chosen because it offered a clear model diagram and pathway logic, explicit distribution parameters in a supplementary appendix, and published output tables suitable for validation. The model simulates the flow of stroke, TIA, complex neurological and other patients through an acute ward and rehabilitation ward, predicting the probability of admission or transfer delay under different bed-capacity scenarios. It met the assignment requirement for multiple patient types and multiple activities.
 
 ### 2. Activities, resources and routing
 
@@ -88,11 +86,11 @@ The model was built in layers rather than in a single prompt. Each iteration foc
 
 #### 3.1 Manual baseline
 
-The manual component involved extracting model assumptions, drawing a conceptual model, identifying ambiguities, reviewing AI-generated code for correctness, and interpreting differences between recreated and published results. This was essential because the article did not provide source code and some logic had to be inferred.
+The manual component involved extracting model assumptions, drawing a conceptual model, identifying ambiguities, reviewing AI-generated code, and interpreting differences between recreated and published results. This was essential because the article did not provide source code and some logic had to be inferred.
 
 #### 3.2 Gemini-assisted iterations
 
-Gemini was used for prompt-based code generation. The workflow comprised prompt engineering, file editing, testing and notebook construction through a sequence of numbered notebooks. The first iterations set up the arrival process and patient pathway; later iterations created the occupancy audit and tested scenarios. The model was not fed the paper directly; instead, each iteration was built using specific prompts. Manual review was required to specify modelling assumptions and interpret ambiguous reporting.
+Gemini was used for prompt-based code generation through a sequence of numbered notebooks. The first iterations set up the arrival process and patient pathway; later iterations created the occupancy audit and tested scenarios. The model was not fed the paper directly; instead, each component was built using specific prompts. In total, the Gemini strand required 14 iteration notebooks. Manual review was required to specify modelling assumptions and interpret ambiguous reporting.
 
 #### 3.3 Codex-assisted iterations
 
@@ -104,15 +102,15 @@ Validation was carried out at three levels: input validation confirmed encoded p
 
 ## Results
 
-The recreated models successfully reproduced the main qualitative behaviour of the Monks et al. [1] study. The simulated acute occupancy distribution had a similar unimodal shape to the published probability density function, and the acute delay trade-off curve showed the same stepped decline in p(delay) as bed numbers increased.
+The Codex-assisted strand produced ten iteration notebooks; the Gemini strand produced 14 notebooks. All unit tests passed in the final versions of both models. The recreated models successfully reproduced the main qualitative behaviour of the Monks et al. [1] study: the simulated acute occupancy distribution had a similar unimodal shape to the published probability density function, and the acute delay trade-off curve showed the same stepped decline in p(delay) as bed numbers increased.
 
 **Figure 2.** Recreated acute occupancy distribution.
 ![Recreated acute occupancy distribution](technical_appendix/final_appendix/docs/figures/final_appendix_acute_occupancy_distribution.png)
-This figure shows the simulated distribution of daily occupancy in the acute stroke unit under the current-admissions scenario. As in Monks et al., the distribution is concentrated around the mean occupancy and displays a right tail reflecting the probability of temporarily high bed demand. Delay calculations are later derived from this occupancy audit rather than from direct blocking of patients in a fixed-capacity ward.
+This figure shows the simulated distribution of daily occupancy in the acute stroke unit under the current-admissions scenario. As in Monks et al. [1], the distribution is concentrated around the mean and displays a right tail reflecting temporarily high bed demand.
 
 **Figure 3.** Recreated acute bed trade-off curve.
 ![Recreated acute delay trade-off curve](technical_appendix/final_appendix/docs/figures/final_appendix_acute_delay_tradeoff.png)
-This figure reproduces the logic of the paper’s trade-off curve by showing how the estimated probability of delay falls as acute bed numbers increase. The stepped form of the curve is consistent with the published figure and demonstrates that relatively small changes in bed numbers can produce large changes in delay probability at low capacity levels, followed by diminishing returns as more capacity is added.
+This figure shows how p(delay) falls as acute bed numbers increase. The stepped form is consistent with the published figure, with diminishing returns as more beds are added.
 
 ### Current admissions versus 5% more admissions
 
@@ -202,40 +200,34 @@ Overall, the strongest agreement was achieved in the core current-admissions and
 
 The recreated model successfully reproduced the core quantitative behaviour reported by Monks et al. [1]. For the current-admissions and 5% more admissions scenarios, both Gemini and Codex produced p(delay) values that closely matched the published tables across acute and rehabilitation beds. The no complex neurological scenario also showed strong acute-unit agreement.
 
-This finding is consistent with Monks, Harper and Heather [7], who recreated the same stroke model using Perplexity.AI with a structured 12-aim iterative process, producing outputs that replicated the original to two decimal places. Our study provides independent corroboration using different LLMs and a less specialist team. Their attempt to also recreate the Penn et al. [10] ward model was less successful due to missing distribution information, reinforcing that recreation success depends on reporting completeness, a point supported by Heather et al. [2] and Monks and Harper [6].
+This is consistent with Monks, Harper and Heather [2], who recreated the same stroke model using Perplexity.AI, producing outputs that replicated the original to two decimal places. Our study provides independent corroboration using different LLMs and a less specialist team. Their attempt to recreate the Griffiths et al. [3] critical care unit model was less successful due to missing distribution information, reinforcing that recreation success depends on reporting completeness [4,5].
 
-Several features of the Monks et al. [1] paper aided recreation: a clear model diagram, explicit lognormal parameters and routing matrices in the appendix, and stated simulation settings. However, important ambiguities remained. The p(delay) calculation method was not fully specified; our initial threshold-based approach diverged from published values until we adopted a loss-formula method. The ring-fenced scenario showed the largest discrepancy, with both tools producing p(delay) approximately half the published value, suggesting the original Simul8 mechanism was more nuanced than the text implied. Schwander et al. [11] reported similar patterns when replicating health economic models: deviations arose primarily from incomplete reporting rather than coding errors.
+Several features of the Monks et al. [1] paper aided recreation: a clear model diagram, explicit lognormal parameters and routing matrices in the appendix, and stated simulation settings. However, important ambiguities remained. The p(delay) calculation method was not fully specified; our initial threshold-based approach diverged from published values until we adopted a loss-formula method. The ring-fenced scenario showed the largest discrepancy, with both tools producing p(delay) approximately half the published value, suggesting the original Simul8 mechanism was more nuanced than the text implied. Schwander et al. [6] reported similar patterns when replicating health economic models: deviations arose primarily from incomplete reporting rather than coding errors. Providing source code or more detailed pseudocode for the pooling and ring-fencing calculations would have substantially reduced ambiguity for anyone attempting recreation.
 
 The pooling scenarios revealed the most notable difference between Gemini and Codex. In partial-pooling configurations, Codex consistently overestimated p(delay) relative to the published values, while Gemini substantially underestimated them. This divergence likely reflects different implementations of the pooling logic, where the paper's description left room for interpretation. In the core scenarios without pooling, the two tools produced near-identical results, confirming that both captured the fundamental model structure correctly.
 
-Across both tools, an iterative and test-driven workflow was essential. No single prompt produced a correct model; recreation proceeded through bounded tasks with manual review after each step. This mirrors Monks, Harper and Heather [7], who concluded that iterative development, systematic testing and domain expertise were all necessary. The Codex workflow functioned more like paired programming, reducing friction but not eliminating the need for human judgement. The Gemini workflow relied on more explicit prompt engineering, with the model guided through specific construction steps rather than being given the paper directly.
+Across both tools, an iterative and test-driven workflow was essential. No single prompt produced a correct model; recreation proceeded through bounded tasks with manual review after each step. This mirrors Monks, Harper and Heather [2], who concluded that iterative development, systematic testing and domain expertise were all necessary. The Codex workflow functioned more like paired programming, reducing friction but not eliminating the need for human judgement. The Gemini workflow relied on more explicit prompt engineering, with the model guided through specific construction steps rather than being given the paper directly. A common challenge across both tools was that LLMs sometimes generated plausible but subtly incorrect distribution parameterisations, requiring manual verification against the appendix tables.
 
-Key limitations include that the recreation was based on a single well-documented model, limiting generalisability; lognormal parameters were inferred from summary statistics; and we lacked access to the original Simul8 model for definitive comparison. If repeated, we would write a formal STRESS-DES specification [5] before coding to identify reporting gaps earlier, and design a more systematic cross-LLM comparison with identical prompts and structured effort logging.
+Key limitations include that the recreation was based on a single well-documented model, limiting generalisability; lognormal parameters were inferred from summary statistics; and we lacked access to the original Simul8 model for definitive comparison. If repeated, we would write a formal STRESS-DES specification [7] before coding to identify reporting gaps earlier, and design a more systematic cross-LLM comparison with identical prompts and structured effort logging.
 
 ## Conclusion
 
-The Monks et al. [1] stroke capacity planning model was successfully recreated in Python and SimPy, with close agreement in the core demand scenarios and expected divergence where the original implementation could not be fully inferred. LLM-assisted iterative development accelerated recreation but did not replace the need for domain knowledge, interpretation of ambiguities, and systematic testing. These findings support the broader case for improved model documentation and code sharing in healthcare simulation, as advocated by the STRESS-DES guidelines [5] and the STARS framework [8].
+The Monks et al. [1] stroke capacity planning model was successfully recreated in Python and SimPy, with close agreement in the core demand scenarios and expected divergence where the original implementation could not be fully inferred. LLM-assisted iterative development accelerated recreation but did not replace the need for domain knowledge, interpretation of ambiguities, and systematic testing. These findings support the broader case for improved model documentation and code sharing in healthcare simulation, as advocated by the STRESS-DES guidelines [7] and the STARS framework [8].
 
 ## References
 
 [1] Monks T, Worthington D, Allen M, Pitt M, Stein K, James MA. A modelling tool for capacity planning in acute and community stroke services. BMC Health Serv Res. 2016;16:530. doi:10.1186/s12913-016-1789-4
 
-[2] Heather A, Monks T, Harper A, Mustafee N, Mayne A. On the reproducibility of discrete-event simulation studies in health research: an empirical study using open models. J Simul. 2025. doi:10.1080/17477778.2025.2552177
+[2] Monks T, Harper A, Heather A. Unlocking the potential of past research: using generative AI to reconstruct healthcare simulation models. J Oper Res Soc. 2025. doi:10.1080/01605682.2025.2554751
 
-[3] Acharya DB, Kuppan K, Divya B. Agentic AI: autonomous intelligence for complex goals: a comprehensive survey. IEEE Access. 2025;13:18912–18936. doi:10.1109/ACCESS.2025.3532853
+[3] Griffiths JD, Jones M, Read MS, Williams JE. A simulation model of bed-occupancy in a critical care unit. J Simul. 2010;4(1):52–59. doi:10.1057/jos.2009.22
 
-[4] Law AM. Simulation modeling and analysis. 5th ed. New York: McGraw-Hill Education; 2015.
+[4] Heather A, Monks T, Harper A, Mustafee N, Mayne A. On the reproducibility of discrete-event simulation studies in health research: an empirical study using open models. J Simul. 2025. doi:10.1080/17477778.2025.2552177
 
-[5] Monks T, Currie CSM, Onggo BS, Robinson S, Kunc M, Taylor SJE. Strengthening the reporting of empirical simulation studies: introducing the STRESS guidelines. J Simul. 2019;13(1):55–67. doi:10.1080/17477778.2018.1442155
+[5] Monks T, Harper A. Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review. J Simul. 2023;19(1):108–123. doi:10.1080/17477778.2023.2260772
 
-[6] Monks T, Harper A. Computer model and code sharing practices in healthcare discrete-event simulation: a systematic scoping review. J Simul. 2023;19(1):108–123. doi:10.1080/17477778.2023.2260772
+[6] Schwander B, Nuijten M, Evers S, Hiligsmann M. Replication of published health economic obesity models: assessment of facilitators, hurdles and reproduction success. PharmacoEconomics. 2021;39(4):433–446. doi:10.1007/s40273-021-01008-7
 
-[7] Monks T, Harper A, Heather A. Unlocking the potential of past research: using generative AI to reconstruct healthcare simulation models. J Oper Res Soc. 2025. doi:10.1080/01605682.2025.2554751
+[7] Monks T, Currie CSM, Onggo BS, Robinson S, Kunc M, Taylor SJE. Strengthening the reporting of empirical simulation studies: introducing the STRESS guidelines. J Simul. 2019;13(1):55–67. doi:10.1080/17477778.2018.1442155
 
 [8] Monks T, Harper A, Mustafee N. Towards sharing tools and artefacts for reusable simulations in healthcare. J Simul. 2024. doi:10.1080/17477778.2024.2347882
-
-[9] Matloff N. Introduction to discrete-event simulation and the SimPy language. Davis (CA): University of California, Davis; 2008. Available from: https://heather.cs.ucdavis.edu/~matloff/156/PLN/DESimIntro.pdf
-
-[10] Penn ML, Monks T, Kazmierska AA, Alkoheji MRAR. Towards generic modelling of hospital wards: reuse and redevelopment of simple models. J Simul. 2020;14(2):107–118. doi:10.1080/17477778.2019.1664264
-
-[11] Schwander B, Nuijten M, Evers S, Hiligsmann M. Replication of published health economic obesity models: assessment of facilitators, hurdles and reproduction success. PharmacoEconomics. 2021;39(4):433–446. doi:10.1007/s40273-021-01008-7
