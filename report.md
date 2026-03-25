@@ -282,9 +282,9 @@ The ring-fenced stroke-bed scenario showed the largest divergence from the publi
 | 10 | 0.14 | 0.14 | 0.14 | 0.08 | 0.04 | 0.04 |
 | 11 | 0.09 | 0.09 | 0.10 | 0.05 | 0.02 | 0.02 |
 | 12 | 0.06 | 0.06 |0.06  | 0.03 | 0.01 | 0.01 |
-| 13 | 0.04 | 0.04 | 0.04 | 0.02 | 0.00 | <0.01 |
-| 14 | 0.02 | 0.02 | 0.02 | 0.01 | 0.00 | <0.01 |
-| 15 | 0.01 | 0.01 | 0.01 | 0.00 | 0.00 | <0.01 |
+| 13 | 0.04 | 0.04 | 0.04 | 0.02 | <0.01 | <0.01 |
+| 14 | 0.02 | 0.02 | 0.02 | 0.01 | <0.01 | <0.01 |
+| 15 | 0.01 | 0.01 | 0.01 | <0.01 | <0.01 | <0.01 |
 
 Overall, the study provides evidence that a published healthcare DES can be recreated in Python and `SimPy` to a useful degree of fidelity using an iterative workflow. The strongest agreement was achieved in the core current-admissions and `5% more admissions` scenarios, while scenarios involving more policy interpretation, such as pooling and ring-fencing, showed larger deviations. Full figures, validation tables and scenario outputs are presented in the technical appendix notebook.
 
