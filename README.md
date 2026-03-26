@@ -20,7 +20,7 @@ The intended final technical appendices are:
 - `technical_appendix/final_appendix/notebooks/final_appendix_gemini.ipynb`
 - `technical_appendix/final_appendix/notebooks/final_appendix_codex.ipynb`
 
-This submission provides two final appendix notebooks rather than a single consolidated notebook. This is deliberate and reflects the comparative design of the assignment. The project did not simply aim to recreate the Monks et al. model once; it aimed to compare how that recreation proceeded under two different AI-assisted workflows. Keeping separate final appendices preserves that distinction more clearly for a marker, because each notebook shows the full end-to-end logic, outputs and validation results for one workflow without collapsing the methodological differences between them. In other words, two final appendices better support the research question of the assignment than one merged appendix would.
+This submission provides two final appendix notebooks rather than a single consolidated notebook. This is deliberate and reflects the comparative design of the assignment. The project did not simply aim to recreate the Monks et al. model once; it aimed to compare how that recreation proceeded under two different AI-assisted workflows. Keeping separate final appendices supports that research goal more clearly, because each notebook shows the full end-to-end logic, outputs and validation results for one workflow, and allows comparison of the methodological differences between them. 
 
 The `technical_appendix/final_appendix/` folder contains:
 
