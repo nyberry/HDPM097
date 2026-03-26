@@ -2,6 +2,8 @@
 
 **Authors:** NA, NB, LB
 
+[Github repository](https://github.com/nyberry/HDPM097)
+
 ## Abstract
 
 Discrete-event simulation (DES) models in healthcare research are rarely published with accompanying code, making independent recreation from text descriptions an important test of reproducibility. This study recreated the stroke pathway capacity planning model reported by Monks et al. [1] in Python using SimPy, following an iterative workflow that combined manual model design with large language model (LLM) assisted code generation using Gemini and Codex. The recreated models closely reproduced the published p(delay) estimates for the current-admissions and increased-demand scenarios across both acute and rehabilitation beds. Agreement was weaker for policy-dependent scenarios such as bed pooling and ring-fencing, where the original implementation could not be fully inferred from the text. The study demonstrates that a well-documented DES model can be recreated to a useful degree of fidelity using LLM-assisted development, but that domain expertise, iterative testing and careful interpretation of reporting ambiguities remain essential.
