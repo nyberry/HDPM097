@@ -1,28 +1,28 @@
 # HDPM097 Assignment Folder
 
-This folder contains the submission materials and supporting development trail for the recreation of the Monks et al. (2016) stroke-pathway discrete-event simulation, together with a comparison of LLM-assisted and code-agent assisted iterative design workflows.
+This folder contains the submission materials and supporting development trail for the recreation of the Monks et al. (2016) stroke-pathway discrete-event simulation.
 
-The main submission materials are:
+These are:
 
 - `report.md`
-  Report text for the written submission.
+  Our groups report for the written submission.
 - `technical_appendix/`
-  Jupyter notebooks, Python code, figures, and supporting documentation for the technical appendix.
+  Jupyter notebooks, Python code, and supporting documentation for the technical appendix.
 - `team_portfolio/`
   Evidence of group working.
 - `requirements.txt`
   Project environment specification.
 
-## Main appendix to assess
+## Main notebook to assess
 
-The primary appendix entry point is:
+The intended final technical notenook is:
 
 - `technical_appendix/final_appendix/notebooks/10_final_technical_appendix.ipynb`
 
 The `technical_appendix/final_appendix/` folder contains:
 
 - `notebooks/`
-  The consolidated end-to-end appendix notebook.
+  The appendix notebook.
 - `stroke_sim/`
   The recreated simulation package.
 - `tests/`
