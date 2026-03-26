@@ -2,13 +2,16 @@
 
 This folder contains both the development trail and the final appendix-ready materials for the DES recreation study.
 
-## Main final appendix
+## Main Final Appendices
 
 Use:
 
-- `final_appendix/notebooks/10_final_technical_appendix.ipynb`
+- `final_appendix/notebooks/final_appendix_gemini.ipynb`
+- `final_appendix/notebooks/final_appendix_codex.ipynb`
 
-This is the consolidated notebook that runs the recreated model end to end and presents:
+These are the two submission-facing appendix notebooks. They are presented separately to preserve the comparative design of the project: one notebook documents the final Gemini-based recreation workflow and the other documents the final Codex-based recreation workflow. Keeping them separate makes it easier for a marker to compare the two AI-assisted approaches directly, rather than reading a merged appendix in which the methodological differences are less visible.
+
+Together, the two notebooks present:
 
 - environment and reproducibility notes
 - the acute occupancy figure
@@ -26,6 +29,7 @@ Use the single root-level environment described in:
 - `../README.md`
 
 From the repository root, create the Python 3.11 environment and install `requirements.txt`, then run the final appendix notebook.
+From the repository root, create the environment and install `requirements.txt`, then run both final appendix notebooks.
 
 ## Supporting development trails
 

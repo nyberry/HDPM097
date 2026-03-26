@@ -34,7 +34,6 @@ The work is organised to satisfy both goals of the assignment:
   - `source_text/`: authoritative text versions of the brief, paper, and appendix
   - `paper_to_model_spec.md`: structured extraction of model logic from the source materials
   - `assumptions.md`: documented assumptions, simplifications, and unresolved ambiguities
-  - `environment_setup.md`: environment and VS Code setup guidance
   - `report_validation_section.md`: reusable report wording for validation results
   - `figures/`: generated output figures from the recreated model
 
@@ -74,4 +73,4 @@ Additional scenario-specific figures and tables are preserved in the iteration n
 - Python 3.11 for the submission environment
 - SimPy 4.1.1
 
-Use the root-level `requirements.txt` for dependencies. See [environment_setup.md](docs/environment_setup.md) for local VS Code notes specific to this development trail.
+Use the root-level `requirements.txt` for dependencies and the root `README.md` for setup instructions.
