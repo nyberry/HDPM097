@@ -5,7 +5,7 @@ This folder contains the submission materials and supporting development trail f
 These are:
 
 - `report.md`
-  Our groups report for the written submission.
+  Our group's report for the written submission.
 - `technical_appendix/`
   Jupyter notebooks, Python code, and supporting documentation for the technical appendix.
 - `team_portfolio/`
@@ -13,9 +13,9 @@ These are:
 - `requirements.txt`
   Project environment specification.
 
-## Main notebook to assess
+## Main Notebook To Assess
 
-The intended final technical notenook is:
+The intended final technical notebook is:
 
 - `technical_appendix/final_appendix/notebooks/10_final_technical_appendix.ipynb`
 
@@ -32,13 +32,20 @@ The `technical_appendix/final_appendix/` folder contains:
 
 ### Recommended setup
 
-From the repository root run:
+From the repository root, create and activate a Python 3.11 virtual environment, then install the project dependencies:
 
 ```bash
 python3.11 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+```
+
+These steps are sufficient to run the code and tests.
+
+If you want to run the appendix notebook in Jupyter or VS Code, also register the environment as a notebook kernel:
+
+```bash
 python -m ipykernel install --user --name hdpm097
 ```
 
