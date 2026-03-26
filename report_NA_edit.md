@@ -90,7 +90,7 @@ The manual component involved extracting model assumptions, drawing a conceptual
 
 #### 3.2 Gemini-assisted iterations
 
-Gemini was used for prompt-based code generation through a sequence of numbered notebooks. The first iterations set up the arrival process and patient pathway; later iterations created the occupancy audit and tested scenarios. The model was not fed the paper directly; instead, each component was built using specific prompts. In total, the Gemini strand required 14 iteration notebooks. Manual review was required to specify modelling assumptions and interpret ambiguous reporting.
+Gemini was used for prompt-based code generation through a sequence of numbered notebooks. The first iterations set up the arrival process and patient pathway; later iterations created the occupancy audit and tested scenarios. The model was not fed the paper directly; instead, each component was built using specific prompts. In total, the Gemini strand required 16 iteration notebooks. Manual review was required to specify modelling assumptions and interpret ambiguous reporting.
 
 #### 3.3 Codex-assisted iterations
 
