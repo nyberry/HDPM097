@@ -159,7 +159,7 @@ The recreated model captured the direction of effect, with lower delay once comp
 | 13 | 0.08 | 0.08 | 0.08 | 0.02 | 0.03 | 0.03 |
 | 14 | 0.05 | 0.05 | 0.05 | 0.01 | 0.02 | 0.02 |
 | 15 | 0.03 | 0.03 | 0.03 | 0.01 | 0.01 | 0.01 |
-| 16 | 0.02 | 0.02 | 0.02 | 0.00 | 0.00 | 0.01 |
+| 16 | 0.02 | 0.02 | 0.02 | <0.01 | <0.01 | 0.01 |
 
 ### Pooling of acute and rehabilitation beds
 
