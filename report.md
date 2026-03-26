@@ -204,7 +204,7 @@ This figure reproduces the logic of the paper’s trade-off curve by showing how
 
 ### Current admissions versus 5% more admissions
 
-Agreement with the published results was strongest when p(delay) was calculated using the occupancy-based loss method implied by Monks et al., rather than a simpler threshold rule based only on whether occupancy was greater than the number of beds. Under the current-admissions scenario, the mean absolute error between published and recreated `p(delay)` values was small for both acute and rehabilitation beds. Similar agreement was observed for the `5% more admissions` scenario.
+Agreement with the published results was strongest when p(delay) was calculated using the occupancy-based loss method implied by Monks et al., rather than a simpler threshold rule based only on whether occupancy was greater than the number of beds. Under the current-admissions scenario, the mean absolute error between published and recreated (Codex and Gemini) `p(delay)` values was small for both acute and rehabilitation beds. Similar agreement was observed for the `5% more admissions` scenario.
 
 **Table 1. Acute beds: published versus recreated results for current admissions and 5% more admissions**
 
@@ -230,7 +230,7 @@ These results suggest that the recreated occupancy-audit model provides a good a
 
 ### Effect of complex neurological patients on flow
 
-The recreated model captured the direction of effect for the `no complex neurological patients` scenario, with lower delay probabilities in both acute and rehabilitation units once that patient group was removed. Agreement was stronger for the acute unit than for rehabilitation, suggesting that the recreated pathway captures the main demand effect of complex neurological patients, but may simplify some downstream consequences of their rehabilitation use.
+The recreated models captured the direction of effect for the `no complex neurological patients` scenario, with lower delay probabilities in both acute and rehabilitation units once that patient group was removed. Agreement was stronger for the acute unit than for rehabilitation, suggesting that the recreated pathway captures the main demand effect of complex neurological patients, but may simplify some downstream consequences of their rehabilitation use.
 
 **Table 3. Acute beds: published versus recreated results for current admissions and no complex neurological patients**
 
@@ -255,7 +255,7 @@ The recreated model captured the direction of effect for the `no complex neurolo
 
 ### Pooling of acute and rehabilitation beds
 
-The pooled-bed scenarios reproduced the broad finding that complete pooling and additional beds reduce delay, although some partial-pooling rows differed more noticeably from the published table. This may reflect that pooled-bed results in the recreation were derived from audited occupancy distributions rather than by reproducing the exact original implementation in SIMUL8.
+The pooled-bed scenarios reproduced the broad finding that complete pooling and additional beds reduce delay, although some partial-pooling rows differed more noticeably from the published table. This may reflect that pooled-bed results in the recreated models were derived from audited occupancy distributions rather than by reproducing the exact original implementation in SIMUL8. The Gemini model seemed to underestimate the p(delay) compared to both the published and Codex model.
 
 **Table 5. Pooling scenarios: published versus recreated `p(delay)`**
 
@@ -273,7 +273,7 @@ The pooled-bed scenarios reproduced the broad finding that complete pooling and 
 
 ### Ring-fenced acute stroke beds
 
-The ring-fenced stroke-bed scenario showed the largest divergence from the published results. In the recreation, ring-fencing was implemented by comparing delay against stroke-only occupancy within the acute unit. This produced a stronger reduction in delay than was reported by Monks et al. While the direction of effect was correct, the magnitude suggests that our recreated ring-fencing rule is likely to be more restrictive than the mechanism used in the original model.
+The ring-fenced stroke-bed scenario showed the largest divergence from the published results. In the recreated models, ring-fencing was implemented by comparing delay against stroke-only occupancy within the acute unit. This produced a stronger reduction in delay than was reported by Monks et al. While the direction of effect was correct, the magnitude suggests that our recreated ring-fencing rule is likely to be more restrictive than the mechanism used in the original model.
 
 **Table 6. Acute beds: published versus recreated results for current admissions and ring-fenced stroke beds**
 
