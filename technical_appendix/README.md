@@ -31,6 +31,19 @@ Use the single root-level environment described in:
 From the repository root, create the Python 3.11 environment and install `requirements.txt`, then run the final appendix notebook.
 From the repository root, create the environment and install `requirements.txt`, then run both final appendix notebooks.
 
+## Supporting Files In `final_appendix`
+
+Within `final_appendix/`, some files are shared across the submission, while others relate specifically to the Codex strand:
+
+- `notebooks/`
+  The two submission-facing appendix notebooks, one for Gemini and one for Codex.
+- `stroke_sim/`
+  The Python simulation package used in the Codex recreation.
+- `tests/`
+  Automated checks used for the Codex recreation.
+- `docs/`
+  Shared source texts and figures, together with documentation generated during the Codex-led reconstruction.
+
 ## Supporting development trails
 
 The project also preserves tool-specific development history:

@@ -27,11 +27,11 @@ The `technical_appendix/final_appendix/` folder contains:
 - `notebooks/`
   The two final appendix notebooks, one for Gemini and one for Codex.
 - `stroke_sim/`
-  The recreated simulation package.
+  The Python simulation package used in the Codex recreation.
 - `tests/`
-  Automated checks for the recreated model.
+  Automated checks used for the Codex recreation.
 - `docs/`
-  Source texts, assumptions, model specification, and generated figures.
+  Shared source texts and figures, together with documentation generated during the Codex-led reconstruction.
 
 ### Recommended setup
 
